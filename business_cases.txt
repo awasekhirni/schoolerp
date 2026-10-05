@@ -1,0 +1,291 @@
+// Copyright 2025 β ORI Inc.Canada All Rights Reserved.
+// Author: Awase Khirni Syed
+// Product Name: β ORI Inc. School ERP (Halima Fathima Global Schools Platform)
+// Version: 1.0
+
+Comprehensive Table List (211 Tables)
+
+ Module 1: Multi-Tenant & Authentication (15 tables)
+
+, ,Table Name ,Business Case |
+
+,1 ,`institutes` ,Core tenant table - stores school/institute information, domain, logo, platform type |
+,2 ,`branches` ,Multi-branch support for a single institute (campus management) |
+,3 ,`users` ,Central user authentication table for all user types (RBAC) |
+,4 ,`roles` ,Role definitions (Super Admin, Teacher, Student, Parent, etc.) |
+,5 ,`permissions` ,Granular permission definitions for access control |
+,6 ,`model_has_roles` ,Polymorphic user-role assignments  |
+,7 ,`model_has_permissions` ,Direct user-permission assignments |
+,8 ,`role_has_permissions` ,Role-permission matrix |
+,9 ,`password_resets` ,Legacy password reset token storage |
+,10 ,`password_reset_tokens` ,Password reset token management |
+,11 ,`sessions` , session management |
+,12 ,`oauth_clients` ,OAuth2 client credentials |
+,13 ,`oauth_access_tokens` ,OAuth2 access token storage |
+,14 ,`oauth_refresh_tokens` ,OAuth2 refresh token management |
+,15 ,`oauth_auth_codes` ,OAuth2 authorization codes |
+
+ Module 2: Academic Configuration (18 tables)
+
+, ,Table Name ,Business Case |
+
+,16 ,`academic_years` ,Academic session/year management (2024-2025, etc.) |
+,17 ,`classes` ,Class definitions (Class 1, Class 2, etc.) |
+,18 ,`sections` ,Section divisions within classes (A, B, C) |
+,19 ,`student_groups` ,Student stream/group definitions (Science, Arts, Commerce) |
+,20 ,`subjects` ,Subject master data with codes and marks distribution |
+,21 ,`subject_configs` ,Subject configuration per class/group |
+,22 ,`departments` ,Academic and administrative departments |
+,23 ,`shifts` ,School shift definitions (Morning, Day) |
+,24 ,`periods` ,Daily class period definitions |
+,25 ,`class_days` ,Working days configuration (Mon-Sun) |
+,26 ,`class_routines` ,Class routine/schedule management |
+,27 ,`class_assigns` ,Teacher-class assignments (class teacher) |
+,28 ,`assign_subjects` ,Teacher-subject-section assignments |
+,29 ,`assign_shifts` ,Teacher shift assignments |
+,30 ,`class_lessons` ,Daily lesson plans for classes |
+,31 ,`syllabus` ,Syllabus document uploads per class |
+,32 ,`assignments` ,Homework/class assignments |
+,33 ,`assignment_submits` ,Student assignment submissions |
+
+ Module 3: Student Management (14 tables)
+
+, ,Table Name ,Business Case |
+
+,34 ,`students` ,Core student demographic and personal information |
+,35 ,`student_sessions` ,Student enrollment per academic session/class/section |
+,36 ,`student_categories` ,Student category types (General, Special, Scholarship) |
+,37 ,`student_migrations` ,Student class promotion/migration history |
+,38 ,`parent_models` ,Parent/guardian information linked to students |
+,39 ,`student_attendances` ,Daily student attendance records (period-wise) |
+,40 ,`student_devices` ,Student device registration for access control |
+,41 ,`device_controls` ,Device access policies per student |
+,42 ,`behaviors` ,Student behavior tracking (positive/negative) |
+,43 ,`gamifications` ,Student gamification/reward records |
+,44 ,`prayers` ,Student prayer/activity participation records |
+,45 ,`resources` ,Teaching resources shared with students |
+,46 ,`custom_fields` ,Dynamic custom field definitions for students |
+,47 ,`custom_field_values` ,Custom field values per student |
+
+ Module 4: Staff Management (8 tables)
+
+, ,Table Name ,Business Case |
+
+,48 ,`teachers` ,Teacher demographic and professional information |
+,49 ,`staffs` ,Non-teaching staff information |
+,50 ,`teacher_signatures` ,Teacher signature images for certificates |
+,51 ,`signatures` ,Principal/authority signature images |
+,52 ,`staff_attendances` ,Staff attendance tracking |
+,53 ,`leave_types` ,Leave type definitions (Medical, Casual, etc.) |
+,54 ,`picklists` ,Dropdown values for designations, religions, etc. |
+,55 ,`user_logs` ,User activity audit trail |
+
+Module 5: Examination & Results (16 tables)
+
+, ,Table Name ,Business Case |
+
+,56 ,`exams` ,Exam definitions (Mid-term, Final, etc.) |
+,57 ,`class_exams` ,Exam-class mappings |
+,58 ,`exam_schedules` ,Exam date/time/room scheduling |
+,59 ,`exam_attendances` ,Student attendance during exams |
+,60 ,`exam_codes` ,Exam component codes (CT, Attendance, etc.) |
+,61 ,`short_codes` ,Short code configurations for marks |
+,62 ,`mark_configs` ,Mark distribution configuration |
+,63 ,`mark_config_exam_codes` ,Exam code mark configurations |
+,64 ,`exam_marks` ,Student marks entry per subject/exam |
+,65 ,`grades` ,Grade scale definitions (A+, A, B, etc.) |
+,66 ,`exam_grades` ,Grade configuration per exam/class model |
+,67 ,`merit_process_types` ,Merit calculation methods |
+,68 ,`grand_final_class_exams` ,Final exam weightage configuration |
+,69 ,`remark_configs` ,Teacher remarks templates per grade |
+,70 ,`result_cards` ,Result card template designs |
+,71 ,`attendances_fines` ,Fine calculation for attendance shortages |
+
+Module 6: Fees & Collection (15 tables)
+
+, ,Table Name ,Business Case |
+
+,72 ,`fee_heads` ,Main fee categories (Tuition, Admission, etc.) |
+,73 ,`fee_sub_heads` ,Fee breakdown (Monthly, Quarterly, etc.) |
+,74 ,`fees` ,Fee amount configuration per class/session |
+,75 ,`fee_maps` ,Fee to accounting ledger mapping |
+,76 ,`fee_map_fee_sub_head` ,Fee-subhead relationship mapping |
+,77 ,`fee_map_fund` ,Fee to fund mapping |
+,78 ,`fee_date_configs` ,Fee payment due date configurations |
+,79 ,`waivers` ,Waiver type definitions (Merit, Poor, etc.) |
+,80 ,`student_waiver_configs` ,Student-specific waiver assignments |
+,81 ,`attendance_waivers` ,Attendance fine waivers |
+,82 ,`student_collections` ,Fee collection invoices |
+,83 ,`student_collection_details` ,Collection breakdown per fee head |
+,84 ,`student_collection_details_sub_heads` ,Collection sub-head details |
+,85 ,`absent_fines` ,Fine configuration for absences |
+,86 ,`payment_methods` ,Payment method definitions (Cash, stripe, etc.) |
+
+Module 7: Accounting & Finance (10 tables)
+
+, ,Table Name ,Business Case |
+
+,87 ,`accounting_categories` ,Chart of accounts categories (Assets, Liabilities) |
+,88 ,`accounting_groups` ,Account groups under categories |
+,89 ,`accounting_ledgers` ,Individual ledger accounts |
+,90 ,`accounting_funds` ,Fund management (General, Scholarship, etc.) |
+,91 ,`account_transactions` ,Main transaction vouchers |
+,92 ,`account_transaction_details` ,Transaction line items (debit/credit) |
+,93 ,`payments` ,Payment records (salary, due, advance) |
+,94 ,`payment_histories` ,Payment invoice history |
+,95 ,`payment_requests` ,Payment gateway request tracking |
+,96 ,`payroll_accounting_mappings` ,Payroll to ledger mapping |
+
+Module 8: Payroll Management (7 tables)
+
+, ,Table Name ,Business Case |
+
+,97 ,`salary_heads` ,Salary component definitions (Basic, Allowance, etc.) |
+,98 ,`user_payrolls` ,User payroll master records |
+,99 ,`salary_head_user_payrolls` ,Salary breakdown per employee |
+,100 ,`payslip_salaries` ,Monthly payslip generation |
+,101 ,`payslip_salary_heads` ,Payslip component details |
+,102 ,`payslip_invoices` ,Payslip invoice records |
+,103 ,`payments` ,(Shared) Payment processing |
+
+Module 9: Library Management (7 tables)
+
+, ,Table Name ,Business Case |
+
+,104 ,`book_categories` ,Book category classifications |
+,105 ,`books` ,Book master data (ISBN, author, etc.) |
+,106 ,`library_members` ,Library membership records |
+,107 ,`book_issues` ,Book issue/return transactions |
+,108 ,`library_fines` ,Late return/lost book fines |
+,109 ,`phone_books` ,Contact directory |
+,110 ,`phone_book_categories` ,Contact categories |
+
+Module 10: Transport Management (6 tables)
+
+, ,Table Name ,Business Case |
+
+,111 ,`buses` ,Bus fleet information |
+,112 ,`drivers` ,Driver information and licenses |
+,113 ,`bus_routes` ,Route definitions with distance/time |
+,114 ,`bus_stops` ,Stop locations with GPS coordinates |
+,115 ,`transport_members` ,Student transport assignments |
+,116 ,`payment_methods` ,(Shared) Transport fee payments |
+
+Module 11: Hostel Management (9 tables)
+
+, ,Table Name ,Business Case |
+
+,117 ,`hostels` ,Hostel building definitions |
+,118 ,`hostel_categories` ,Room types and fee structures |
+,119 ,`rooms` ,Individual room details |
+,120 ,`hostel_members` ,Student hostel allocations |
+,121 ,`room_members` ,Room occupancy management |
+,122 ,`hostel_bills` ,Hostel fee billing |
+,123 ,`meals` ,Meal type definitions |
+,124 ,`meal_plans` ,Student meal plan assignments |
+,125 ,`meal_entries` ,Daily meal consumption records |
+
+Module 12: LMS & E-Learning (22 tables)
+
+, ,Table Name ,Business Case |
+
+,126 ,`courses` ,Online course definitions |
+,127 ,`course_categories` ,Course category taxonomy |
+,128 ,`course_features` ,Course feature highlights |
+,129 ,`course_faqs` ,Course-specific FAQs |
+,130 ,`chapters` ,Course chapter/module structure |
+,131 ,`lessons` ,Individual lesson content (video, doc) |
+,132 ,`contents` ,Content-chapter mapping |
+,133 ,`content_visibility` ,Content access control |
+,134 ,`enrollments` ,Student course enrollments |
+,135 ,`lms_assignments` ,LMS assignment definitions |
+,136 ,`lms_assignment_results` ,Assignment submission results |
+,137 ,`lms_class_routines` ,LMS class schedule |
+,138 ,`lms_class_routine_days` ,Routine day mappings |
+,139 ,`lms_days` ,LMS day definitions |
+,140 ,`lms_rooms` ,Virtual room definitions |
+,141 ,`lms_zoom_meetings` ,Zoom meeting integrations |
+,142 ,`zoom_meetings` ,General Zoom meeting records |
+,143 ,`quizzes` ,Quiz/assessment definitions |
+,144 ,`quiz_attempts` ,Student quiz attempts |
+,145 ,`quiz_results` ,Quiz result analytics |
+,146 ,`quiz_topics` ,Quiz topic configurations |
+,147 ,`subscriptions` ,Course subscription management |
+
+ Module 13: Question Bank (22 tables)
+
+, ,Table Name ,Business Case |
+
+,148 ,`questions` ,Master question repository |
+,149 ,`question_categories` ,Question category taxonomy |
+,150 ,`question_bank_classes` ,Question bank class mappings |
+,151 ,`question_bank_groups` ,Question bank group mappings |
+,152 ,`question_bank_subjects` ,Question bank subject mappings |
+,153 ,`question_bank_chapters` ,Question bank chapter mappings |
+,154 ,`question_bank_topics` ,Question bank topic mappings |
+,155 ,`question_bank_types` ,Question types (MCQ, True/False) |
+,156 ,`question_bank_levels` ,Difficulty levels |
+,157 ,`question_bank_difficulty_levels` ,Advanced difficulty classification |
+,158 ,`question_bank_sessions` ,Session-wise question tagging |
+,159 ,`question_bank_years` ,Year-wise question tagging |
+,160 ,`question_bank_boards` ,Education board mappings |
+,161 ,`question_bank_sources` ,Question source tracking |
+,162 ,`question_bank_sub_sources` ,Sub-source classification |
+,163 ,`question_bank_tags` ,Question tagging system |
+,164 ,`question_bank_tests` ,Test/exam paper definitions |
+,165 ,`question_type` ,Question-type pivot |
+,166 ,`question_level` ,Question-level pivot |
+,167 ,`question_session` ,Question-session pivot |
+,168 ,`question_source` ,Question-source pivot |
+,169 ,`question_sub_source` ,Question sub-source pivot |
+
+Module 14: Communication & Notifications (8 tables)
+
+, ,Table Name ,Business Case |
+
+,170 ,`notices` ,School notice board |
+,171 ,`user_notices` ,Notice targeting (role-based) |
+,172 ,`events` ,School event calendar |
+,173 ,`contacts` ,Contact form submissions |
+,174 ,`frontend_contacts` ,Frontend website contact forms |
+,175 ,`sms_templates` ,SMS message templates |
+,176 ,`sms_logs` ,SMS sending history |
+,177 ,`sms_balances` ,SMS gateway balance tracking |
+
+Module 15: CMS & Website (14 tables)
+
+, ,Table Name ,Business Case |
+
+,178 ,`pages` ,CMS page management |
+,179 ,`about_us` ,About us page content |
+,180 ,`our_histories` ,Institute history timeline |
+,181 ,`banners` ,Homepage banner slider |
+,182 ,`testimonials` ,Student/parent testimonials |
+,183 ,`feedback` ,User feedback collection |
+,184 ,`faq_questions` ,FAQ section |
+,185 ,`s_a_a_s_faqs` ,SAAS platform FAQs |
+,186 ,`policies` ,Privacy, Cookie, Terms policies |
+,187 ,`why_choose_us` ,USP section content |
+,188 ,`ready_to_join_us` ,CTA section content |
+,189 ,`mobile_app_sections` ,Mobile app promotion content |
+,190 ,`academic_images` ,Academic gallery images |
+,191 ,`themes` ,UI theme configurations |
+
+ Module 16: System & SAAS Configuration (12 tables)
+
+, ,Table Name ,Business Case |
+
+,192 ,`settings` ,Institute-level system settings |
+,193 ,`s_a_a_s_settings` ,SAAS platform global settings |
+,194 ,`institute_image_settings` ,Institute logo/image settings |
+,195 ,`institute_image_s_a_a_s_settings` ,SAAS default image settings |
+,196 ,`plans` ,SAAS subscription plans |
+,197 ,`subscription_items` ,Subscription payment items |
+,198 ,`subscription_upgrade_requests` ,Plan upgrade requests |
+,199 ,`s_a_a_s_subscriptions` ,Newsletter subscriptions |
+,200 ,`onboardings` ,New institute onboarding requests |
+,201 ,`otp_verifications` ,OTP verification records |
+,202 ,`languages` ,Multi-language support |
+,203 ,`payment_methods` ,Payment gateway configurations |
+
+ 
